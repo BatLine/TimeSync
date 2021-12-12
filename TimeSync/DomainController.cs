@@ -111,7 +111,7 @@ namespace TimeSync
 
         public void SyncTime() {
             var time = GetNetworkTime();
-            SetSystemDate((short)time.Year, (short)time.Month, (short)time.Day, (short)time.Hour, (short)time.Minute, (short)time.Second);
+            SetSystemDate((short)time.Year, (short)time.Month, (short)time.Day, (short)(time.Hour-1), (short)time.Minute, (short)time.Second);
         }
 
         public bool IsProgramRunAtStartup() {
