@@ -37,9 +37,9 @@ namespace TimeSync
             // 
             // btnSync
             // 
-            this.btnSync.Location = new System.Drawing.Point(276, 144);
+            this.btnSync.Location = new System.Drawing.Point(190, 24);
             this.btnSync.Name = "btnSync";
-            this.btnSync.Size = new System.Drawing.Size(185, 92);
+            this.btnSync.Size = new System.Drawing.Size(291, 144);
             this.btnSync.TabIndex = 0;
             this.btnSync.Text = "Sync";
             this.btnSync.UseVisualStyleBackColor = true;
@@ -81,13 +81,17 @@ namespace TimeSync
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(513, 199);
             this.Controls.Add(this.btnCheckTimeDifference);
             this.Controls.Add(this.btnDisableRunOnStartup);
             this.Controls.Add(this.btnEnableRunOnStartup);
             this.Controls.Add(this.btnSync);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmMain";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "TimeSync";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
 
