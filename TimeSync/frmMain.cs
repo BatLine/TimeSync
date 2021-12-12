@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TimeSync
-{
+namespace TimeSync {
     public partial class frmMain : Form {
         private DomainController _dc;
 
@@ -40,6 +39,10 @@ namespace TimeSync
             if (!_dc.SetRunAtStartup(false)) return;
             btnEnableRunOnStartup.Enabled = true;
             btnDisableRunOnStartup.Enabled = false;
+        }
+
+        private void btnCheckTimeDifference_Click(object sender, EventArgs e) {
+            _dc.ShowTimeDifference();
         }
     }
 }

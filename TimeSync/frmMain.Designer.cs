@@ -32,6 +32,7 @@ namespace TimeSync
             this.btnSync = new System.Windows.Forms.Button();
             this.btnEnableRunOnStartup = new System.Windows.Forms.Button();
             this.btnDisableRunOnStartup = new System.Windows.Forms.Button();
+            this.btnCheckTimeDifference = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSync
@@ -66,11 +67,22 @@ namespace TimeSync
             this.btnDisableRunOnStartup.UseVisualStyleBackColor = true;
             this.btnDisableRunOnStartup.Click += new System.EventHandler(this.btnDisableRunOnStartup_Click);
             // 
+            // btnCheckTimeDifference
+            // 
+            this.btnCheckTimeDifference.Location = new System.Drawing.Point(30, 124);
+            this.btnCheckTimeDifference.Name = "btnCheckTimeDifference";
+            this.btnCheckTimeDifference.Size = new System.Drawing.Size(143, 44);
+            this.btnCheckTimeDifference.TabIndex = 3;
+            this.btnCheckTimeDifference.Text = "Check time difference";
+            this.btnCheckTimeDifference.UseVisualStyleBackColor = true;
+            this.btnCheckTimeDifference.Click += new System.EventHandler(this.btnCheckTimeDifference_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCheckTimeDifference);
             this.Controls.Add(this.btnDisableRunOnStartup);
             this.Controls.Add(this.btnEnableRunOnStartup);
             this.Controls.Add(this.btnSync);
@@ -86,6 +98,7 @@ namespace TimeSync
         private System.Windows.Forms.Button btnSync;
         private System.Windows.Forms.Button btnEnableRunOnStartup;
         private System.Windows.Forms.Button btnDisableRunOnStartup;
+        private System.Windows.Forms.Button btnCheckTimeDifference;
     }
 }
 

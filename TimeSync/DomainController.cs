@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -11,8 +12,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using Microsoft.Win32.TaskScheduler;
 
-namespace TimeSync
-{
+namespace TimeSync {
     public class DomainController {
         private struct SYSTEMTIME {
             public short wYear;
@@ -94,7 +94,7 @@ namespace TimeSync
 
                 //**UTC** time
                 var networkDateTime = (new DateTime(1900, 1, 1, 0, 0, 0, DateTimeKind.Utc)).AddMilliseconds((long)milliseconds);
-
+                //MessageBox.Show(networkDateTime.ToLongTimeString());
                 return networkDateTime.ToLocalTime();
             } catch (Exception e) {
                 MessageBox.Show(e.Message);
@@ -112,6 +112,7 @@ namespace TimeSync
         public void SyncTime() {
             var time = GetNetworkTime();
             SetSystemDate((short)time.Year, (short)time.Month, (short)time.Day, (short)(time.Hour-1), (short)time.Minute, (short)time.Second);
+            //MessageBox.Show(time.ToLongTimeString() + "\n" + (time.Hour-1));
         }
 
         public bool IsProgramRunAtStartup() {
@@ -138,6 +139,18 @@ namespace TimeSync
                 ts.RootFolder.RegisterTaskDefinition(@"TimeSync", td);
                 return true;
             }
+        }
+
+        public void ShowTimeDifference() {
+            var proc1 = new ProcessStartInfo {
+                UseShellExecute = true,
+                WorkingDirectory = @"C:\Windows\System32",
+                FileName = @"C:\Windows\System32\cmd.exe",
+                Verb = "runas",
+                Arguments = "/c " + "w32tm /stripchart /computer:time.windows.com",
+                WindowStyle = ProcessWindowStyle.Normal
+            };
+            Process.Start(proc1);
         }
     }
 }
