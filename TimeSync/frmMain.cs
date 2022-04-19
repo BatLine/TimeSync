@@ -27,6 +27,8 @@ namespace TimeSync {
             } else {
                 btnEnableRunOnStartup.Enabled = true;
             }
+
+            btnUpdateTimeAfterSync_Click(sender, e);
         }
 
         private void btnEnableRunOnStartup_Click(object sender, EventArgs e) {
@@ -43,6 +45,14 @@ namespace TimeSync {
 
         private void btnCheckTimeDifference_Click(object sender, EventArgs e) {
             _dc.ShowTimeDifference();
+        }
+
+        private void btnUpdateTimeAfterSync_Click(object sender, EventArgs e) {
+            lblTimeLabel.Text = _dc.UpdateTimeAfterSync().ToLongTimeString();
+        }
+
+        private void btnShowDebugInfo_Click(object sender, EventArgs e) {
+            MessageBox.Show(_dc.DebugInfo(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

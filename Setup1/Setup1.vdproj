@@ -64,12 +64,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_51674F66CF980EC39CDB0CA11DBFF2DF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7214ACB30D664CE5A650F609970EE6AA"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -95,6 +89,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_31ECE16128C7111E700758B97F3757C3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_51674F66CF980EC39CDB0CA11DBFF2DF"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -154,6 +154,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -409,15 +417,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TimeSync"
-        "ProductCode" = "8:{F1669368-E934-48E4-80BD-403AFADE93E5}"
-        "PackageCode" = "8:{6AC1EB26-6B15-4A45-A439-90F70113809F}"
+        "ProductCode" = "8:{3C6754CA-379A-4B93-A96F-F67EB3BEB5D6}"
+        "PackageCode" = "8:{C876BE75-0D62-4F65-A417-F5B3F909B5F0}"
         "UpgradeCode" = "8:{035FF04A-B0AB-48BF-8048-7F521BEBD46D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:BatLine"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -94,12 +94,16 @@ namespace TimeSync {
 
                 //**UTC** time
                 var networkDateTime = (new DateTime(1900, 1, 1, 0, 0, 0, DateTimeKind.Utc)).AddMilliseconds((long)milliseconds);
-                //MessageBox.Show(networkDateTime.ToLongTimeString());
-                return networkDateTime.ToLocalTime();
+                
+                return networkDateTime;
             } catch (Exception e) {
                 MessageBox.Show(e.Message);
                 return Convert.ToDateTime ("12-31-1900");
             }
+        }
+
+        private DateTime GetNetworkTimeToLocal() {
+            return GetNetworkTime().ToLocalTime();
         }
 
         private static uint SwapEndianness(ulong x) {
@@ -111,8 +115,23 @@ namespace TimeSync {
 
         public void SyncTime() {
             var time = GetNetworkTime();
-            SetSystemDate((short)time.Year, (short)time.Month, (short)time.Day, (short)(time.Hour-1), (short)time.Minute, (short)time.Second);
-            //MessageBox.Show(time.ToLongTimeString() + "\n" + (time.Hour-1));
+            SetSystemDate((short)time.Year, (short)time.Month, (short)time.Day, (short)(time.Hour), (short)time.Minute, (short)time.Second);
+        }
+
+        public DateTime UpdateTimeAfterSync() {
+            return GetNetworkTimeToLocal();
+        }
+
+        public string DebugInfo() {
+            var result = string.Empty;
+
+            var time = GetNetworkTime();
+            result += $"UTC:\nKind: {time.Kind}\nIs DaylightSavingsTime: {time.IsDaylightSavingTime()}\nTime: {time.ToLongTimeString()}";
+            time = time.ToLocalTime();
+            result += $"\n\nLocal:\nKind: {time.Kind}\nIs DaylightSavingsTime: {time.IsDaylightSavingTime()}\nTime: {time.ToLongTimeString()}\n";
+            result += $"\n\nCurrent TimeZone:\nDST Name: {TimeZone.CurrentTimeZone.DaylightName}\nStandard Name: {TimeZone.CurrentTimeZone.StandardName}\nIs DST: {TimeZone.CurrentTimeZone.IsDaylightSavingTime(DateTime.Now)}\nUTC Offset: {TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now)}";
+
+            return result;
         }
 
         public bool IsProgramRunAtStartup() {
